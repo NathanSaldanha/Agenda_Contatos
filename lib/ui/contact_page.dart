@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:agenda_contatos/helpers/contact_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -77,20 +76,19 @@ class _ContactPageState extends State<ContactPage> {
                             : AssetImage("img/Logo.png")),
                   ),
                 ),
-                onTap: (){
-                  ImagePicker.pickImage(source: ImageSource.camera).then((File){
-                    if(File == null){
+                onTap: () {
+                  ImagePicker.pickImage(source: ImageSource.camera)
+                      .then((File) {
+                    if (File == null) {
                       return;
-                    }else{
+                    } else {
                       setState(() {
                         _editedContact.img = File.path;
                       });
-
                     }
                   });
                 },
               ),
-
               TextField(
                 controller: _nameController,
                 focusNode: _nameFocus,
@@ -127,7 +125,7 @@ class _ContactPageState extends State<ContactPage> {
     );
   }
 
-   Future<bool>_requestPop()  {
+  Future<bool> _requestPop() {
     if (_userEditeed) {
       showDialog(
           context: context,
